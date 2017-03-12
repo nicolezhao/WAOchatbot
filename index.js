@@ -33,10 +33,16 @@ app.post('/webhook', function (req, res) {
             // getStarted(event.sender.id);
 
             if (text == 'Report'){
-                reportMessage(event.sender.id, text);
+            	sendMessage(event.sender.id, {text: "What would you like to report?"});
+            }
+            // else if (text == 'Report'){
+            // 	sendMessage(event.sender.id, {text: "What would you like to report?"});
+            // }
+            else if{
+            	reportMessage(event.sender.id, text);
             }
             else{
-                sendMessage(event.sender.id, {text: "Could not process your message :("});
+                sendMessage(event.sender.id, {text: "What would you like to report?"});
             }
            
         } else if (event.postback) {
@@ -81,7 +87,10 @@ function reportMessage(recipientId, text) {
 
     var city = text;
 
-            var imageUrl = "https://www.theweathernetwork.com/ca/hourly-weather-forecast/ontario/toronto";
+    		var webUrl1 = "http://www.loftcs.org/programs/the-access-point/";
+            var imageUrl1 = "https://medschool.vanderbilt.edu/pcc/files/pcc/resize/public_files/Group1-400x300.jpg";
+            var webUrl2 = 
+            var imageUrl2 = "https://medschool.vanderbilt.edu/pcc/files/pcc/resize/public_files/DSC_3732-500x300.JPG";
 
             message = {
                 "attachment": {
@@ -89,28 +98,31 @@ function reportMessage(recipientId, text) {
                     "payload": {
                         "template_type": "generic",
                         "elements": [{
-                            "title": city,
-                            "subtitle": "hello",
+                            "title": "LOFT: The Access Point",
+                            "subtitle": "While you wait, you may find these resources helpful.",
+                            "image_url": imageUrl1 ,
                             "buttons": [{
                                 "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Show me the weather"
+                                "url": webUrl1,
+                                "title": "Visit site"
                             }, {
-                                "type": "postback",
-                                "title": "Show me outfits",
+                                "type": "web_url",
+                                "url": webUrl1,
+                                "title": "Visit WAO",
                                 "payload": "Call outfits function",
                                 }],
                             }, {
                                 "title": city,
-                                "subtitle": "weather °",
-                                //"image_url": imageUrl ,
+                                "subtitle": "weather",
+                                "image_url": imageUrl2 ,
                                 "buttons": [{
                                 "type": "web_url",
-                                "url": imageUrl,
+                                "url": webUrl2,
                                 "title": "Show me the weather"
                             }, {
-                                "type": "postback",
-                                "title": "Show me outfits",
+                                "type": "web_url",
+                                "url": webUrl2,
+                                "title": "VisitWAO",
                                 "payload": "Call outfits function",
                                 //MIGHT BE USEFUL LATER: "payload": "User " + recipientId + " likes us ",
                             }],

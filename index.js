@@ -33,7 +33,7 @@ app.post('/webhook', function (req, res) {
             // getStarted(event.sender.id);
 
             if (text){
-                weatherMessage(event.sender.id, text, temp);
+                weatherMessage(event.sender.id, text);
             }
             else{
                 sendMessage(event.sender.id, {text: "Could not process your message :("});
@@ -102,7 +102,7 @@ function initialMessage(recipientId)  {
 
 
 // send rich message 
-function weatherMessage(recipientId, text, temp) {
+function weatherMessage(recipientId, text) {
 
     var city = text;
 

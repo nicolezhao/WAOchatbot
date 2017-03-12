@@ -109,7 +109,6 @@ function reportMessage(recipientId, text) {
                                 "type": "web_url",
                                 "url": webUrl1,
                                 "title": "Visit WAO",
-                                "payload": "Call outfits function",
                                 }],
                             }, {
                                 "title": "Another",
@@ -123,7 +122,6 @@ function reportMessage(recipientId, text) {
                                 "type": "web_url",
                                 "url": webUrl2,
                                 "title": "VisitWAO",
-                                "payload": "Call outfits function",
                                 //MIGHT BE USEFUL LATER: "payload": "User " + recipientId + " likes us ",
                             }],
                         }]

@@ -33,6 +33,7 @@ app.post('/webhook', function (req, res) {
             // getStarted(event.sender.id);
 
             if (text == 'Report'){
+                sendMessage(event.sender.id, {text: "While you wait you may find these resources helpful."});
             	reportMessage(event.sender.id, text);
             }
             // else if (text == 'Report'){

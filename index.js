@@ -33,7 +33,7 @@ app.post('/webhook', function (req, res) {
             // getStarted(event.sender.id);
 
             if (text == 'Report'){
-            	sendMessage(event.sender.id, {text: "What would you like to report?"});
+            	reportMessage(event.sender.id, text);
             }
             // else if (text == 'Report'){
             // 	sendMessage(event.sender.id, {text: "What would you like to report?"});
@@ -89,7 +89,7 @@ function reportMessage(recipientId, text) {
 
     		var webUrl1 = "http://www.loftcs.org/programs/the-access-point/";
             var imageUrl1 = "https://medschool.vanderbilt.edu/pcc/files/pcc/resize/public_files/Group1-400x300.jpg";
-            var webUrl2 = 
+            var webUrl2 = "http://www.loftcs.org/programs/the-access-point/";
             var imageUrl2 = "https://medschool.vanderbilt.edu/pcc/files/pcc/resize/public_files/DSC_3732-500x300.JPG";
 
             message = {
@@ -100,7 +100,7 @@ function reportMessage(recipientId, text) {
                         "elements": [{
                             "title": "LOFT: The Access Point",
                             "subtitle": "While you wait, you may find these resources helpful.",
-                            "image_url": imageUrl1 ,
+                            "image_url": imageUrl1,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": webUrl1,
@@ -112,7 +112,7 @@ function reportMessage(recipientId, text) {
                                 "payload": "Call outfits function",
                                 }],
                             }, {
-                                "title": city,
+                                "title": "Another",
                                 "subtitle": "weather",
                                 "image_url": imageUrl2 ,
                                 "buttons": [{

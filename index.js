@@ -90,8 +90,8 @@ function reportMessage(recipientId, text) {
 
     		var webUrl1 = "http://www.loftcs.org/programs/the-access-point/";
             var imageUrl1 = "https://medschool.vanderbilt.edu/pcc/files/pcc/resize/public_files/Group1-400x300.jpg";
-            var webUrl2 = "http://www.loftcs.org/programs/the-access-point/";
-            var imageUrl2 = "https://medschool.vanderbilt.edu/pcc/files/pcc/resize/public_files/DSC_3732-500x300.JPG";
+            var webUrl2 = "http://www.adamhouse.org/home";
+            var imageUrl2 = "https://i0.wp.com/cdn.chrisd.ca/wp-content/uploads/2017/02/brian-pallister-1.jpg?w=650";
 
             message = {
                 "attachment": {
@@ -100,25 +100,25 @@ function reportMessage(recipientId, text) {
                         "template_type": "generic",
                         "elements": [{
                             "title": "LOFT: The Access Point",
-                            "subtitle": "While you wait, you may find these resources helpful.",
+                            "subtitle": "A single point of access to mental health and addictions support services and supportive housing",
                             "image_url": imageUrl1,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": webUrl1,
-                                "title": "Visit site"
+                                "title": "Visit Site"
                             }, {
                                 "type": "web_url",
                                 "url": webUrl1,
                                 "title": "Visit WAO",
                                 }],
                             }, {
-                                "title": "Another",
-                                "subtitle": "weather",
+                                "title": "Adam House",
+                                "subtitle": "A home and caring community for newly arrived refugee claimants in Toronto.",
                                 "image_url": imageUrl2 ,
                                 "buttons": [{
                                 "type": "web_url",
                                 "url": webUrl2,
-                                "title": "Show me the weather"
+                                "title": "Visit Site"
                             }, {
                                 "type": "web_url",
                                 "url": webUrl2,

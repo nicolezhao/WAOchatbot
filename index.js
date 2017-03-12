@@ -38,9 +38,9 @@ app.post('/webhook', function (req, res) {
             // else if (text == 'Report'){
             // 	sendMessage(event.sender.id, {text: "What would you like to report?"});
             // }
-            else if{
-            	reportMessage(event.sender.id, text);
-            }
+            // else if{
+            // 	reportMessage(event.sender.id, text);
+            // }
             else{
                 sendMessage(event.sender.id, {text: "What would you like to report?"});
             }

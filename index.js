@@ -3,8 +3,6 @@ var bodyParser = require('body-parser');
 var request = require('request');  
 var app = express();
 
-
-
 app.use(bodyParser.urlencoded({extended: false}));  
 app.use(bodyParser.json());  
 app.listen((process.env.PORT || 3000));
@@ -107,10 +105,6 @@ function initialMessage(recipientId)  {
 function weatherMessage(recipientId, text, temp) {
 
     var city = text;
-    // var degrees = getWeather(recipientId, text);
-    // console.log(typeof(getWeather(recipientId, text)));
-
-    // if (values.length === 1 && values[0] === 'Toronto') {
 
             var imageUrl = "https://www.theweathernetwork.com/ca/hourly-weather-forecast/ontario/toronto";
 
@@ -121,7 +115,7 @@ function weatherMessage(recipientId, text, temp) {
                         "template_type": "generic",
                         "elements": [{
                             "title": city,
-                            "subtitle": temp,
+                            "subtitle": "hello",
                             "buttons": [{
                                 "type": "web_url",
                                 "url": imageUrl,

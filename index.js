@@ -37,6 +37,9 @@ app.post('/webhook', function (req, res) {
             }
             else if (text == 'Help'){
             	sendLocation(event.sender.id);
+            } 
+            else if (text == 'Status'){
+                sendMessage(event.sender.id, {text: "Your report submitted on March 11th has been labelled as high priority."});
             }
             else {
             	sendMessage(event.sender.id, {text: "Your report has been submitted and is currently under review. While you wait you may find these resources helpful."});

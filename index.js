@@ -32,8 +32,8 @@ app.post('/webhook', function (req, res) {
             console.log(text);
             // getStarted(event.sender.id);
 
-            if (text){
-                weatherMessage(event.sender.id, text);
+            if (text == 'Report'){
+                reportMessage(event.sender.id, text);
             }
             else{
                 sendMessage(event.sender.id, {text: "Could not process your message :("});
@@ -73,36 +73,11 @@ function sendMessage(recipientId, message) {
             console.log('Error: ', response.body.error);
         }
     });
-
-};
-
-
-function initialMessage(recipientId)  {
-
-    message ={
-    "text":"Pick a city:",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Toronto",
-        "payload":"Toronto"
-      },
-      {
-        "content_type":"text",
-        "title":"San Fran",
-        "payload":"San Fran"
-      }
-    ]
-  }
-
-    sendMessage(recipientId, message);
-    return true;
-
 };
 
 
 // send rich message 
-function weatherMessage(recipientId, text) {
+function reportMessage(recipientId, text) {
 
     var city = text;
 

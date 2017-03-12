@@ -33,17 +33,14 @@ app.post('/webhook', function (req, res) {
             // getStarted(event.sender.id);
 
             if (text == 'Report'){
-                sendMessage(event.sender.id, {text: "While you wait you may find these resources helpful."});
-            	reportMessage(event.sender.id, text);
-            }
-            // else if (text == 'Report'){
-            // 	sendMessage(event.sender.id, {text: "What would you like to report?"});
-            // }
-            // else if{
-            // 	reportMessage(event.sender.id, text);
-            // }
-            else{
                 sendMessage(event.sender.id, {text: "What would you like to report?"});
+            }
+            else if (text == 'Help'){
+            	sendLocation(event.sender.id);
+            }
+            else {
+            	sendMessage(event.sender.id, {text: "Your report has been submitted and is currently under review. While you wait you may find these resources helpful."});
+                reportMessage(event.sender.id, text);
             }
            
         } else if (event.postback) {
@@ -139,47 +136,21 @@ function reportMessage(recipientId, text) {
 
 };
 
-function outfitMessage(recipientId)  {
+function sendLocation(recipientId)  {
 
     //text = text || "";
     //var values = text.split(' ');
 
-            var imageUrl = "https://www.pinterest.com/pin/AdFO5sYa7C0wmM1eNhF3SWn192Ru_VGnAHMnQndpboCJEGWNnrdx2Ek/";
+        
 
             message = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": [{
-                            "title": "Outfit 1",
-                            "subtitle": "Got it",
-                            "buttons": [{
-                                "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Outfits like this"
-                            }, {
-                                "type": "postback",
-                                "title": "I like this",
-                                "payload": "Like",
-                                }],
-                            }, {
-                                "title": "Outfit 2",
-                                "subtitle": "Got it",
-                                //"image_url": imageUrl ,
-                                "buttons": [{
-                                "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Outfits like this"
-                            }, {
-                                "type": "postback",
-                                "title": "I like this",
-                                "payload": "Like",
-                            }],
-                        }]
-                    }
-                }
-            };
+                "text":"Share your location:",
+                "quick_replies":[
+                  {
+                    "content_type":"location",
+                  }
+                ]
+              };
 
             sendMessage(recipientId, message);
             return true;
